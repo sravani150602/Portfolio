@@ -142,26 +142,41 @@
             text-align: left;
         }
 
-        .hero h1 {
+        .intro-text {
+            font-size: 1.2rem;
+            color: #ccc;
+        }
+
+        .name {
             font-size: 3rem;
-            margin-bottom: 1.5rem;
-            font-weight: 800;
+            font-weight: 700;
+            margin: 0.5rem 0;
             background: linear-gradient(to right, var(--light), var(--secondary));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
         }
 
-        .hero h1 span {
-            background: linear-gradient(to right, var(--accent), var(--secondary));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+        .typing-text {
+            font-size: 2rem;
+            font-family: monospace;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: #fff;
+        }
+
+        .cursor {
+            display: inline-block;
+            animation: blink 0.8s infinite;
+        }
+
+        @keyframes blink {
+            50% { opacity: 0; }
         }
 
         .hero p {
             font-size: 1.1rem;
-            margin-bottom: 2rem;
+            margin: 1.5rem 0 2rem;
             max-width: 600px;
             color: var(--gray);
         }
@@ -1047,8 +1062,12 @@
                 padding: 100px 1rem 1.5rem;
             }
 
-            .hero h1 {
+            .name {
                 font-size: 2.2rem;
+            }
+
+            .typing-text {
+                font-size: 1.8rem;
             }
 
             .hero p {
@@ -1098,8 +1117,12 @@
                 padding: 90px 0.8rem 1rem;
             }
 
-            .hero h1 {
+            .name {
                 font-size: 1.8rem;
+            }
+
+            .typing-text {
+                font-size: 1.4rem;
             }
 
             .hero p {
@@ -1171,7 +1194,11 @@
     <section class="hero" id="home">
         <div class="hero-content">
             <div class="hero-text">
-                <h1>Hi, I'm <span>Sravani Elavarthi</span><br>Data Engineer</h1>
+                <p class="intro-text">Hi, I am</p>
+                <h1 class="name">Sravani Elavarthi</h1>
+                <h2 class="typing-text">
+                    <span id="typing"></span><span class="cursor">|</span>
+                </h2>
                 <p>Data Engineer with expertise in building scalable data pipelines, implementing machine learning solutions, and creating insightful visualizations. Passionate about leveraging data to drive business decisions and solve complex problems.</p>
                 <div class="cta-buttons-container">
                     <a href="#contact" class="cta-btn cta-btn-primary">
@@ -1194,8 +1221,7 @@
                 </div>
                 <div class="tech-icon"><img src="https://www.python.org/static/favicon.ico" alt="Python"></div>
                 <div class="tech-icon"><img src="https://www.postgresql.org/favicon.ico" alt="Database"></div>
-                <div class="tech-icon">
-    <img src="TensorFlow.png" alt="TensorFlow" /> </div>
+                <div class="tech-icon"><img src="TensorFlow.png" alt="TensorFlow"></div>
                 <div class="tech-icon"><img src="https://aws.amazon.com/favicon.ico" alt="Cloud"></div>
             </div>
         </div>
@@ -1331,12 +1357,9 @@
                 <h3><i class="fas fa-brain"></i> ML & AI Frameworks</h3>
                 <div class="skills-grid">
                     <div class="skill-item">
-                        <div class="skill-icon">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2d/Tensorflow_logo.svg" alt="TensorFlow" />
+                        <div class="skill-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/2/2d/Tensorflow_logo.svg" alt="TensorFlow"></div>
+                        <div class="skill-name">TensorFlow</div>
                     </div>
-                    <div class="skill-name">TensorFlow</div>
-                    </div>
-
                     <div class="skill-item">
                         <div class="skill-icon"><img src="https://pytorch.org/favicon.ico" alt="PyTorch"></div>
                         <div class="skill-name">PyTorch</div>
@@ -1362,10 +1385,8 @@
                         <div class="skill-icon"><img src="https://www.postgresql.org/favicon.ico" alt="PostgreSQL"></div>
                         <div class="skill-name">PostgreSQL</div>
                     </div>
-                   <div class="skill-item">
-                        <div class="skill-icon">
-                        <img src="https://upload.wikimedia.org/wikipedia/en/d/dd/MySQL_logo.svg" alt="MySQL" />
-                        </div>
+                    <div class="skill-item">
+                        <div class="skill-icon"><img src="https://upload.wikimedia.org/wikipedia/en/d/dd/MySQL_logo.svg" alt="MySQL"></div>
                         <div class="skill-name">MySQL</div>
                     </div>
                     <div class="skill-item">
@@ -1414,38 +1435,38 @@
         </div>
     </section>
 
-  <!-- Certifications Section -->
-<section class="certifications-section" id="certifications">
-    <div class="section-title">
-        <h2>Professional <span>Certifications</span></h2>
-    </div>
-    <div class="certifications-grid">
-        <div class="certification-card">
-            <div class="certification-content">
-                <div class="certification-issuer">
-                    <i class="fas fa-certificate"></i> Astronomer
+    <!-- Certifications Section -->
+    <section class="certifications-section" id="certifications">
+        <div class="section-title">
+            <h2>Professional <span>Certifications</span></h2>
+        </div>
+        <div class="certifications-grid">
+            <div class="certification-card">
+                <div class="certification-content">
+                    <div class="certification-issuer">
+                        <i class="fas fa-certificate"></i> Astronomer
+                    </div>
+                    <h3>Apache Airflow Certification</h3>
+                    <p>Certified in building and managing data pipelines with Apache Airflow, including DAG creation, task dependencies, and workflow orchestration.</p>
+                    <a href="https://www.credly.com/badges/f8cc917e-5558-458d-840b-a64dd1cbf79f/linked_in_profile" target="_blank" class="certification-link">
+                        View Certificate <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
-                <h3>Apache Airflow Certification</h3>
-                <p>Certified in building and managing data pipelines with Apache Airflow, including DAG creation, task dependencies, and workflow orchestration.</p>
-                <a href="https://www.credly.com/badges/f8cc917e-5558-458d-840b-a64dd1cbf79f/linked_in_profile" target="_blank" class="certification-link">
-                    View Certificate <i class="fas fa-arrow-right"></i>
-                </a>
+            </div>
+            <div class="certification-card">
+                <div class="certification-content">
+                    <div class="certification-issuer">
+                        <i class="fas fa-certificate"></i> Amazon Web Services
+                    </div>
+                    <h3>AWS Training & Certification</h3>
+                    <p>Certified in various AWS services including S3, Glue, Athena, Lambda, and Redshift for building scalable cloud data solutions.</p>
+                    <a href="https://skillbuilder.aws/412469ec-2fe9-438b-83f1-24c260deb2fb" target="_blank" class="certification-link">
+                        View Certificate <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
             </div>
         </div>
-        <div class="certification-card">
-            <div class="certification-content">
-                <div class="certification-issuer">
-                    <i class="fas fa-certificate"></i> Amazon Web Services
-                </div>
-                <h3>AWS Training & Certification</h3>
-                <p>Certified in various AWS services including S3, Glue, Athena, Lambda, and Redshift for building scalable cloud data solutions.</p>
-                <a href="https://skillbuilder.aws/412469ec-2fe9-438b-83f1-24c260deb2fb" target="_blank" class="certification-link">
-                    View Certificate <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-        </div>
-    </div>
-</section>
+    </section>
 
     <!-- Achievements Section -->
     <section class="achievements-section" id="achievements">
@@ -1663,14 +1684,22 @@
                     }
                 });
             });
+
+            // Typing effect for "DATA ENGINEER"
+            const words = ["DATA", "ENGINEER"];
+            let i = 0;
+
+            function typeWords() {
+                if (i < words.length) {
+                    document.getElementById("typing").textContent +=
+                        (i === 0 ? "" : " ") + words[i];
+                    i++;
+                    setTimeout(typeWords, 800); // delay between words
+                }
+            }
+
+            typeWords();
         });
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
