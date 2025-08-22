@@ -145,12 +145,13 @@
         .intro-text {
             font-size: 1.2rem;
             color: #ccc;
+            margin-bottom: 0; /* Further reduced gap */
         }
 
         .name {
             font-size: 3rem;
             font-weight: 700;
-            margin: 0.5rem 0;
+            margin: 0 0 0.2rem; /* Further reduced gap */
             background: linear-gradient(to right, var(--light), var(--secondary));
             -webkit-background-clip: text;
             background-clip: text;
@@ -160,23 +161,21 @@
         .typing-text {
             font-size: 2rem;
             font-family: monospace;
-            text-transform: uppercase;
-            letter-spacing: 4px;
+            letter-spacing: 2px;
             color: #fff;
-        }
-
-        .cursor {
             display: inline-block;
-            animation: blink 0.8s infinite;
+            animation: floatText 3s ease-in-out infinite;
         }
 
-        @keyframes blink {
-            50% { opacity: 0; }
+        @keyframes floatText {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+            100% { transform: translateY(0); }
         }
 
         .hero p {
             font-size: 1.1rem;
-            margin: 1.5rem 0 2rem;
+            margin: 1rem 0 2rem;
             max-width: 600px;
             color: var(--gray);
         }
@@ -228,6 +227,10 @@
             background: transparent;
             color: var(--light);
             border: 2px solid var(--secondary);
+            width: 45px;
+            height: 45px;
+            padding: 0;
+            justify-content: center;
         }
 
         .cta-btn-linkedin:hover, .cta-btn-github:hover {
@@ -1140,6 +1143,11 @@
                 justify-content: center;
             }
 
+            .cta-btn-linkedin, .cta-btn-github {
+                width: 40px;
+                height: 40px;
+            }
+
             .profile-container {
                 width: 220px;
                 height: 220px;
@@ -1197,21 +1205,21 @@
                 <p class="intro-text">Hi, I am</p>
                 <h1 class="name">Sravani Elavarthi</h1>
                 <h2 class="typing-text">
-                    <span id="typing"></span><span class="cursor">|</span>
+                    <span id="typing"></span>
                 </h2>
-                <p>Data Engineer with expertise in building scalable data pipelines, implementing machine learning solutions, and creating insightful visualizations. Passionate about leveraging data to drive business decisions and solve complex problems.</p>
+                <p>Transforming raw data into resilient pipelines. Engineering the future with code, cloud, and curiosity.</p>
                 <div class="cta-buttons-container">
                     <a href="#contact" class="cta-btn cta-btn-primary">
                         <i class="fas fa-handshake"></i> Hire Me
                     </a>
                     <a href="Sravani_DE_Resume_.pdf" target="_blank" class="cta-btn cta-btn-outline">
-                        <i class="fas fa-file-download"></i> Download Resume
+                        <i class="fas fa-file-download"></i> Resume
                     </a>
                     <a href="https://www.linkedin.com/in/sravani-elavarthi/" target="_blank" class="cta-btn cta-btn-linkedin">
-                        <i class="fab fa-linkedin-in"></i> Connect with Me
+                        <i class="fab fa-linkedin-in"></i>
                     </a>
                     <a href="https://github.com/sravani150602/" target="_blank" class="cta-btn cta-btn-github">
-                        <i class="fab fa-github"></i> GitHub
+                        <i class="fab fa-github"></i>
                     </a>
                 </div>
             </div>
@@ -1222,7 +1230,7 @@
                 <div class="tech-icon"><img src="https://www.python.org/static/favicon.ico" alt="Python"></div>
                 <div class="tech-icon"><img src="https://www.postgresql.org/favicon.ico" alt="Database"></div>
                 <div class="tech-icon"><img src="TensorFlow.png" alt="TensorFlow"></div>
-                <div class="tech-icon"><img src="https://aws.amazon.com/favicon.ico" alt="Cloud"></div>
+                <div class="tech-icon"><img src="https://d1.awsstatic.com/favicon.ico" alt="AWS"></div>
             </div>
         </div>
     </section>
@@ -1394,7 +1402,7 @@
                         <div class="skill-name">BigQuery</div>
                     </div>
                     <div class="skill-item">
-                        <div class="skill-icon"><img src="https://aws.amazon.com/favicon.ico" alt="Redshift"></div>
+                        <div class="skill-icon"><img src="https://d1.awsstatic.com/favicon.ico" alt="Redshift"></div>
                         <div class="skill-name">Redshift</div>
                     </div>
                     <div class="skill-item">
@@ -1407,7 +1415,7 @@
                 <h3><i class="fas fa-cloud"></i> Cloud & DevOps</h3>
                 <div class="skills-grid">
                     <div class="skill-item">
-                        <div class="skill-icon"><img src="https://aws.amazon.com/favicon.ico" alt="AWS"></div>
+                        <div class="skill-icon"><img src="https://d1.awsstatic.com/favicon.ico" alt="AWS"></div>
                         <div class="skill-name">AWS</div>
                     </div>
                     <div class="skill-item">
@@ -1685,20 +1693,35 @@
                 });
             });
 
-            // Typing effect for "DATA ENGINEER"
-            const words = ["DATA", "ENGINEER"];
-            let i = 0;
+            // Letter-by-letter typing effect for "Data Engineer" with looping
+            const text = "Data Engineer";
+            let index = 0;
+            let isDeleting = false;
+            const typingElement = document.getElementById("typing");
 
-            function typeWords() {
-                if (i < words.length) {
-                    document.getElementById("typing").textContent +=
-                        (i === 0 ? "" : " ") + words[i];
-                    i++;
-                    setTimeout(typeWords, 800); // delay between words
+            function typeLetters() {
+                if (isDeleting) {
+                    typingElement.textContent = text.substring(0, index);
+                    index--;
+                    if (index < 0) {
+                        isDeleting = false;
+                        setTimeout(typeLetters, 500); // Pause before typing again
+                    } else {
+                        setTimeout(typeLetters, 50); // Speed for deleting
+                    }
+                } else {
+                    typingElement.textContent = text.substring(0, index + 1);
+                    index++;
+                    if (index >= text.length) {
+                        isDeleting = true;
+                        setTimeout(typeLetters, 1000); // Pause before deleting
+                    } else {
+                        setTimeout(typeLetters, 100); // Speed for typing
+                    }
                 }
             }
 
-            typeWords();
+            typeLetters();
         });
     </script>
 </body>
