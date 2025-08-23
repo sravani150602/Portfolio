@@ -295,10 +295,10 @@
             object-fit: contain;
         }
 
-        .tech-icon:nth-child(1) { top: 5%; left: 5%; animation-delay: 0s; } /* Python */
-        .tech-icon:nth-child(2) { top: 65%; left: 10%; animation-delay: 1s; } /* PostgreSQL */
-        .tech-icon:nth-child(3) { top: 15%; right: 5%; animation-delay: 2s; } /* TensorFlow */
-        .tech-icon:nth-child(4) { bottom: 5%; right: 10%; animation-delay: 3s; } /* AWS */
+        .tech-icon:nth-child(1) { top: 5%; left: 5%; animation-delay: 0s; } /* Cloud */
+        .tech-icon:nth-child(2) { top: 25%; left: 5%; animation-delay: 1s; } /* Python */
+        .tech-icon:nth-child(3) { top: 65%; left: 10%; animation-delay: 2s; } /* PostgreSQL */
+        .tech-icon:nth-child(4) { bottom: 5%; right: 5%; animation-delay: 3s; } /* TensorFlow */
 
         .section {
             padding: 5rem 1.5rem;
@@ -820,6 +820,7 @@
             display: flex;
             flex-direction: column;
             gap: 1.2rem;
+            align-items: center;
         }
 
         .contact-card {
@@ -831,6 +832,8 @@
             border-radius: 10px;
             transition: transform 0.3s ease;
             border: 1px solid rgba(255, 255, 255, 0.1);
+            width: 100%;
+            max-width: 400px;
         }
 
         .contact-card:hover {
@@ -849,6 +852,12 @@
             justify-content: center;
             font-size: 1.1rem;
             margin-right: 1rem;
+            flex-shrink: 0;
+        }
+
+        .contact-details {
+            flex-grow: 1;
+            text-align: left;
         }
 
         .contact-details h3 {
@@ -869,9 +878,9 @@
 
         .social-links {
             display: flex;
-            justify-content: center;
+            justify-content: flex-start;
             gap: 0.8rem;
-            margin-top: 1.5rem;
+            margin-top: 0.5rem;
         }
 
         .social-link {
@@ -997,10 +1006,10 @@
                 height: 30px;
             }
 
-            .tech-icon:nth-child(1) { top: 10%; left: 10%; }
-            .tech-icon:nth-child(2) { top: 60%; left: 15%; }
-            .tech-icon:nth-child(3) { top: 20%; right: 10%; }
-            .tech-icon:nth-child(4) { bottom: 10%; right: 15%; }
+            .tech-icon:nth-child(1) { top: 10%; left: 10%; } /* Cloud */
+            .tech-icon:nth-child(2) { top: 30%; left: 10%; } /* Python */
+            .tech-icon:nth-child(3) { top: 60%; left: 15%; } /* PostgreSQL */
+            .tech-icon:nth-child(4) { bottom: 10%; right: 10%; } /* TensorFlow */
 
             .about-content {
                 grid-template-columns: 1fr;
@@ -1241,10 +1250,10 @@
                 <div class="profile-container">
                     <img src="Sravani_profile.jpeg" alt="Sravani Elavarthi">
                 </div>
+                <div class="tech-icon"><img src="https://img.icons8.com/ios-filled/50/ffffff/cloud.png" alt="Cloud"></div>
                 <div class="tech-icon"><img src="https://www.python.org/static/favicon.ico" alt="Python"></div>
                 <div class="tech-icon"><img src="https://www.postgresql.org/favicon.ico" alt="Database"></div>
                 <div class="tech-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/2/2d/Tensorflow_logo.svg" alt="TensorFlow"></div>
-                <div class="tech-icon"><img src="https://img.icons8.com/color/48/000000/amazon-web-services.png" alt="AWS"></div>
             </div>
         </div>
     </section>
@@ -1761,5 +1770,3 @@
     </script>
 </body>
 </html>
-
-
