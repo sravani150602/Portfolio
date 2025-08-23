@@ -145,13 +145,15 @@
         .intro-text {
             font-size: 1.2rem;
             color: #ccc;
-            margin-bottom: 0; /* Further reduced gap */
+            margin-bottom: -0.2rem; /* Further reduced gap */
+            line-height: 1.2; /* Adjusted line-height */
         }
 
         .name {
             font-size: 3rem;
             font-weight: 700;
-            margin: 0 0 0.2rem; /* Further reduced gap */
+            margin: 0 0 0.1rem; /* Further reduced gap */
+            padding-top: 0; /* Removed padding */
             background: linear-gradient(to right, var(--light), var(--secondary));
             -webkit-background-clip: text;
             background-clip: text;
@@ -165,6 +167,7 @@
             color: #fff;
             display: inline-block;
             animation: floatText 3s ease-in-out infinite;
+            margin-bottom: 0.5rem; /* Adjusted for spacing */
         }
 
         @keyframes floatText {
@@ -175,7 +178,7 @@
 
         .hero p {
             font-size: 1.1rem;
-            margin: 1rem 0 2rem;
+            margin: 0.5rem 0 1.5rem; /* Adjusted margin for tighter spacing */
             max-width: 600px;
             color: var(--gray);
         }
@@ -223,18 +226,21 @@
             transform: translateY(-3px);
         }
 
-        .cta-btn-linkedin, .cta-btn-github {
-            background: transparent;
-            color: var(--light);
-            border: 2px solid var(--secondary);
-            width: 45px;
-            height: 45px;
-            padding: 0;
-            justify-content: center;
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 0.5rem; /* Space between buttons and icons */
+            justify-content: flex-start;
         }
 
-        .cta-btn-linkedin:hover, .cta-btn-github:hover {
-            background: rgba(255, 215, 0, 0.1);
+        .social-icon {
+            font-size: 1.5rem;
+            color: var(--light);
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            color: var(--secondary);
             transform: translateY(-3px);
         }
 
@@ -957,11 +963,15 @@
             }
 
             .hero p {
-                margin: 0 auto 1.5rem;
+                margin: 0.5rem auto 1.5rem;
                 max-width: 90%;
             }
 
             .cta-buttons-container {
+                justify-content: center;
+            }
+
+            .social-icons {
                 justify-content: center;
             }
 
@@ -1143,9 +1153,8 @@
                 justify-content: center;
             }
 
-            .cta-btn-linkedin, .cta-btn-github {
-                width: 40px;
-                height: 40px;
+            .social-icons {
+                justify-content: center;
             }
 
             .profile-container {
@@ -1215,10 +1224,12 @@
                     <a href="Sravani_DE_Resume_.pdf" target="_blank" class="cta-btn cta-btn-outline">
                         <i class="fas fa-file-download"></i> Resume
                     </a>
-                    <a href="https://www.linkedin.com/in/sravani-elavarthi/" target="_blank" class="cta-btn cta-btn-linkedin">
+                </div>
+                <div class="social-icons">
+                    <a href="https://www.linkedin.com/in/sravani-elavarthi/" target="_blank" class="social-icon">
                         <i class="fab fa-linkedin-in"></i>
                     </a>
-                    <a href="https://github.com/sravani150602/" target="_blank" class="cta-btn cta-btn-github">
+                    <a href="https://github.com/sravani150602/" target="_blank" class="social-icon">
                         <i class="fab fa-github"></i>
                     </a>
                 </div>
